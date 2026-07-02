@@ -24,6 +24,7 @@ CREATE DATABASE DataWarehouse;
 GO
 
 USE DataWarehouse;
+GO
 
 --Creation of layer schemas
 
