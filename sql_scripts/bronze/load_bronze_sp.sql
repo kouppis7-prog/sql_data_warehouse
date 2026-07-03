@@ -1,3 +1,9 @@
+/*
+Stored Procedure for loading data from external CSV files into the 'bronze_layer' schema.
+It truncates the tables before loading the data and it uses the 'BULK LOAD' command in order
+to load the data.
+*/
+
 CREATE OR ALTER PROCEDURE bronze_layer.load_bronze AS
 BEGIN
 	BEGIN TRY
