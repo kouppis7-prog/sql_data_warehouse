@@ -1,9 +1,3 @@
-/*
-Stored Procedure for loading data from external CSV files into the 'bronze_layer' schema.
-It truncates the tables before loading the data and it uses the 'BULK LOAD' command in order
-to load the data.
-*/
-
 CREATE OR ALTER PROCEDURE bronze_layer.load_bronze AS
 BEGIN
 	BEGIN TRY
@@ -18,7 +12,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.crm_cust_info;
 		BULK INSERT bronze_layer.crm_cust_info
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_crm\cust_info.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_crm\cust_info.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -30,7 +24,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.crm_prd_info;
 		BULK INSERT bronze_layer.crm_prd_info
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_crm\prd_info.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_crm\prd_info.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -42,7 +36,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.crm_sales_details;
 		BULK INSERT bronze_layer.crm_sales_details
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_crm\sales_details.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_crm\sales_details.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -56,7 +50,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.erp_cust_az12;
 		BULK INSERT bronze_layer.erp_cust_az12
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_erp\CUST_AZ12.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_erp\CUST_AZ12.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -68,7 +62,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.erp_loc_a101;
 		BULK INSERT bronze_layer.erp_loc_a101
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_erp\loc_a101.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_erp\loc_a101.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
@@ -80,7 +74,7 @@ BEGIN
 		SET @start_time = GETDATE();
 		TRUNCATE TABLE bronze_layer.erp_px_cat_g1v2;
 		BULK INSERT bronze_layer.erp_px_cat_g1v2
-		FROM 'C:\Users\prank\Desktop\DWH Project\datasets\source_erp\px_cat_g1v2.csv'
+		FROM 'C:\Users\prank\Desktop\sql_data_warehouse\datasets\source_erp\px_cat_g1v2.csv'
 		WITH(
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
