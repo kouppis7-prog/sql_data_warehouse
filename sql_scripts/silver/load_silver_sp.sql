@@ -1,3 +1,8 @@
+/*
+This store procedure performs ETL process to load 'silver_layer' tables from the 'bronze_layer' schema.
+It truncates the silver tables before inserting transformed and clean data.
+*/ 
+
 CREATE OR ALTER PROCEDURE silver_layer.load_silver AS
 BEGIN
 	BEGIN TRY
